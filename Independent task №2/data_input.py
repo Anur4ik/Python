@@ -8,4 +8,5 @@ def input_worker():
         days_worked =  int(input("Введіть кількість відпрацьованих днів : "))
         worker[name] = {'Зарплата': salary, 'Дні': days_worked}
 
+
     return worker
