@@ -1,4 +1,4 @@
 def calculate_monthly_salary(worker_info):
-    for salary, days_worked in worker_info.items():
-        monthly_salary =  (salary['Зарплата']/30)*days_worked['Дні']
-        print(f"Cпівробітник отримає за місяць  {worker_info} : {monthly_salary} грн")
+    for worker, details in worker_info.items():
+        monthly_salary =  (details['Зарплата']/30)*details['Дні']
+        print(f"{worker} отримає за місяць : {monthly_salary:.2f} грн")

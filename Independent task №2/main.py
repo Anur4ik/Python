@@ -3,12 +3,11 @@ from calculations import *
 from general import *
 def main():
     worker = input_worker()
-    print(worker)
-
     calculate_monthly_salary(worker)
 
 
     worker_names = list(worker.keys())
+    print("Всі співробітники команди:")
     print_worker_names(worker_names)
 
 if __name__ == "__main__":
