@@ -10,5 +10,4 @@ def main():
     print("Всі співробітники команди:")
     print_worker_names(worker_names)
 
-if __name__ == "__main__":
-    main()
+
