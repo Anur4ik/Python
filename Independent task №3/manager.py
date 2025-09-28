@@ -11,8 +11,7 @@ class Manager(Employee):
         return self._number_of_subordinates
 
     def set_number_of_subordinates(self, number):
-        if number >= 0:
-            self._number_of_subordinates = number
+        self._number_of_subordinates = number
 
     def bonus(self):
         return super().bonus()+ (self._number_of_subordinates * Manager.awards)
