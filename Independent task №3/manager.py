@@ -4,7 +4,14 @@ from employee import Employee
 class Manager(Employee):
     def __init__(self, name, salary, days_worked,bonus=0 ,number_of_subordinates=0):
         super().__init__(name,salary,days_worked,bonus)
-        self.number_of_subordinates = number_of_subordinates
+        self._number_of_subordinates = number_of_subordinates
+
+    def get_number_of_subordinates(self):
+        return self._number_of_subordinates
+
+    def set_number_of_subordinates(self, number):
+        if number >= 0:
+            self._number_of_subordinates = number
 
     def zvit(self):
-        return (f"Менеджер {self.name} керує {self.number_of_subordinates} співробітниками.")
+        return (f"Менеджер {self._name} керує {self._number_of_subordinates} співробітниками.")
