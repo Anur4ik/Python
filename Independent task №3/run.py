@@ -13,3 +13,5 @@ for i in team:
     print(f"Працівник: {i.get_name()}")
     print(f"Зарплата: {i.calculate_monthly_salary():.2f} грн")
     print(f"Бонус: {i.bonus():.2f} грн")
+    if isinstance(i, Manager):
+     print(i.zvit())
