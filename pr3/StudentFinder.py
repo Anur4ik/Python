@@ -13,7 +13,7 @@ class StudentFinder:
 
     def display_students_info(self, students):
         for student in students:
-            pib = student['Прізвище'] + student['Ім\'я']
+            pib = student['Прізвище'] +" " + student['Ім\'я']
             print(f"ПІБ: {pib}")
             print("Завдання:")
             for key, value in student.items():
