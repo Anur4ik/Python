@@ -4,4 +4,8 @@ class Person:
         self._surname = surname
         self._mark = mark
     def get_info(self):
-        return (f"{self._name}  {self._surname} його оцінка становить {self._mark}")
+        return f"{self._name}  {self._surname} його оцінка становить {self._mark}"
+
+    def __del__(self):
+        print(f"Ви отримали стипендію {self._name} {self._surname}.")
+
