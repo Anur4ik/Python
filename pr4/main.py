@@ -21,10 +21,14 @@ time.sleep(1)
 eggs = []
 while 1:
     if random.randint(1, 100) == 1:
-      eggs.append(Egg(canvas, 'red', score))
+        eggs.append(Egg(canvas, 'red', score))
+    for egg in list(eggs):
+        if egg.draw() == 'hit bottom':
+            eggs.remove(egg)
     tk.update_idletasks()
     tk.update()
     time.sleep(0.01)
+
 tk.update()
 time.sleep(1)
 
