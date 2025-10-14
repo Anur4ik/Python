@@ -1,4 +1,6 @@
-
+from Catcher import Catcher
+from Score import Score
+from Egg import Egg
 from tkinter import *
 import random
 import time
@@ -11,6 +13,10 @@ tk.wm_attributes("-topmost", 1)
 
 canvas = Canvas(tk, width=500, height=400, bd=0, highlightthickness=0)
 canvas.pack()
+score = Score(canvas)
+tk.update()
+time.sleep(1)
+
 
 tk.update()
 time.sleep(3)
