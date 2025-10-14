@@ -1,5 +1,3 @@
-from Catcher import Catcher
-from Score import Score
 from Egg import Egg
 import random
 import time
@@ -18,6 +16,15 @@ canvas.pack()
 
 score = Score(canvas)
 catcher = Catcher(canvas, 'blue', score)
+tk.update()
+time.sleep(1)
+eggs = []
+while 1:
+    if random.randint(1, 100) == 1:
+      eggs.append(Egg(canvas, 'red', score))
+    tk.update_idletasks()
+    tk.update()
+    time.sleep(0.01)
 tk.update()
 time.sleep(1)
 
