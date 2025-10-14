@@ -16,5 +16,4 @@ class Manager(Employee):
     def bonus(self):
         return super().bonus()+ (self._number_of_subordinates * Manager.awards)
 
-    def zvit(self):
-        return (f"Менеджер {self._name} керує {self._number_of_subordinates} співробітниками.")
+

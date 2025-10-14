@@ -8,27 +8,19 @@ class Catcher:
         self.canvas_width = self.canvas.winfo_width()
         self.canvas.bind_all('<KeyPress-Left>', self.turn_left)
         self.canvas.bind_all('<KeyPress-Right>', self.turn_right)
-
     def turn_left(self, evt):
-
         if self.canvas.coords(self.id)[0] > 0:
             self.x = -20
-
     def turn_right(self, evt):
-
         if self.canvas.coords(self.id)[2] >= self.canvas_width:
             self.x = 20
-
     def draw(self):
-
         self.canvas.move(self.id, self.x, 0)
         pos = self.canvas.coords(self.id)
-
         if pos[0] <= 0:
             self.x = 0
         elif pos[2] >= self.canvas_width:
             self.x = 0
-
     def catch(self, eggs):
         catcher_pos = self.canvas.coords(self.id)
         for egg in eggs:
