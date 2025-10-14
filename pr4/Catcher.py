@@ -7,3 +7,13 @@ class Catcher:
         self.x = 0
         self.canvas_width = self.canvas.winfo_width()
 
+    def draw(self):
+
+        self.canvas.move(self.id, self.x, 0)
+        pos = self.canvas.coords(self.id)
+
+        if pos[0] <= 0:
+            self.x = 0
+        elif pos[2] >= self.canvas_width:
+            self.x = 0
+
