@@ -4,13 +4,16 @@ import time
 from tkinter import *
 from Catcher import Catcher
 from Score import Score
+
 tk = Tk()
 tk.title("Гра: Ловець!")
 tk.resizable(0, 0)
 tk.wm_attributes("-topmost", 1)
+
 canvas = Canvas(tk, width=500, height=400,
                 bd=0, highlightthickness=0)
 canvas.pack()
+
 score = Score(canvas)
 catcher = Catcher(canvas, 'blue', score)
 eggs = []
@@ -27,6 +30,7 @@ while 1:
     time.sleep(0.01)
     if score.lost >= 5:
         break
+
 canvas.create_text(250, 200, text="Гра завершена!", font=('Helvetica', 30), fill='red')
 canvas.create_text(250, 250, text=f"Ви пропустили {score.lost} яєць.", font=('Helvetica', 20), fill='red')
 tk.update()
