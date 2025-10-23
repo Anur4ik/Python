@@ -18,7 +18,6 @@ db.insert_student(
     avg_desired=info["Середній бал (бажаний)"]
 )
 
-# Перевіряємо
 print("\nВсі студенти у БД:")
 for row in db.get_all_students():
     print(row)
