@@ -1,9 +1,24 @@
 from student import Student
 from student_data import StudentData
-
+from database import Database
+db = Database()
 student = Student("Котасов Олександр Сергійович", "ІСД-32", "2006-09-26", "м. Київ")
 subjects = ["Математика", "Програмування", "Фізика"]
 real_grades = [85, 90, 78]
 desired_grades = [95, 98, 100]
 data = StudentData(student, subjects, real_grades, desired_grades)
-print( data.get_info())
+info= data.get_info()
+print( info)
+
+db.insert_student(
+    pib=student.get_pib(),
+    group_number=student.get_group_number(),
+    birth_date=student.get_birth_date(),
+    avg_real=info["Середній бал (реальний)"],
+    avg_desired=info["Середній бал (бажаний)"]
+)
+
+# Перевіряємо
+print("\nВсі студенти у БД:")
+for row in db.get_all_students():
+    print(row)
