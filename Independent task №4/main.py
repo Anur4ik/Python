@@ -13,7 +13,7 @@ print( info)
 db.insert_student(
     pib=info["ПІБ"],
     group_number=info["Група"],
-    birth_date=info,
+    birth_date=student.get_birth_date(),
     avg_real=info["Середній бал (реальний)"],
     avg_desired=info["Середній бал (бажаний)"]
 )
