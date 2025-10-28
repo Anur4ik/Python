@@ -8,6 +8,7 @@ real_grades = [85, 90, 78]
 desired_grades = [95, 98, 100]
 data = StudentData(student, subjects, real_grades, desired_grades)
 info= data.get_info()
+print("Данні які були введені")
 print( info)
 
 db.insert_student(
