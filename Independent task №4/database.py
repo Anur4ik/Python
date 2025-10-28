@@ -32,14 +32,14 @@ class Database:
             """, (pib, group_number, birth_date, avg_real, avg_desired))
             conn.commit()
 
-    def update_student(self, student_id, avg_real, avg_desired):
+    def update_student(self, student_id, pib):
         with self.connect() as conn:
             cursor = conn.cursor()
             cursor.execute("""
-                UPDATE students
-                SET avg_real = ?, avg_desired = ?
-                WHERE id = ?
-            """, (avg_real, avg_desired, student_id))
+                           UPDATE students
+                           SET pib = ?
+                           WHERE id = ?
+                           """, ( student_id,pib))
             conn.commit()
 
     def delete_student(self, student_id):

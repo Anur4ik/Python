@@ -11,16 +11,11 @@ info= data.get_info()
 print("Данні які були введені")
 print( info)
 
-db.insert_student(
-    pib=data.student.get_pib(),
-    group_number=data.student.get_group_number(),
-    birth_date=data.student.get_birth_date(),
-    avg_real=data.real_success.average_score(),
-    avg_desired=data.desired_success.average_score(),
+db.insert_student(data.student.get_pib(),data.student.get_group_number(),data.student.get_birth_date(), data.real_success.average_score(), data.desired_success.average_score(),
 )
 
 print("Всі студенти у БД:")
 for row in db.get_all_students():
     print(row)
-db.update_student(student_id=1, avg_real=88.5, avg_desired=99.0)
+db.update_student(1,'oleks')
 db.delete_student(2)
