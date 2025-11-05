@@ -1,20 +1,35 @@
 from django.http import HttpResponse
 
-def list_singers():
-    singers = [
-        {'id': 1, 'name': 'Океан Ельзи', 'genre': 'Рок', 'lead_singer': 'Святослав Вакарчук', 'slug': 'okean-elzy'},
-        {'id': 2, 'name': 'Бумбокс', 'genre': 'Рок, Хіп-хоп', 'lead_singer': 'Андрій Хливнюк', 'slug': 'bumboks'}
+def info_list():
+    info = [
+        {'id': 1, 'name': 'Олександр', 'surname': 'Котасов', 'year': '19', 'group': 'ІСД-32','email':'st8483500@stud.duikt.edu.ua'},
     ]
-    return singers
+    return info
 
-def popular_singers(request):
+def table(request):
     html_content = """
-        <h1>Популярні співаки України</h1>
-        <ul>
+        <h1>Інформація про мене </h1>
+      <table border="1" cellpadding="5">           
+        <tr><th>ID</th>
+                    <th>Ім’я</th>
+                    <th>Прізвище</th>
+                    <th>Вік</th>
+                    <th>Група</th>
+                    <th>Email</th>
+        </tr>
     """
-    for singer in list_singers():
-        html_content += f"<li><strong>{singer['name']}</strong> - {singer['genre']} (Вокаліст: {singer['lead_singer']})</li>"
+    for info in info_list():
+        html_content += f"""
+                  <tr>
+                      <td>{info['id']}</td>
+                      <td>{info['name']}</td>
+                      <td>{info['surname']}</td>
+                      <td>{info['year']}</td>
+                      <td>{info['group']}</td>
+                      <td>{info['email']}</td>
+                  </tr>
+          """
     html_content += """
-        </ul>
+     </table>
     """
     return HttpResponse(html_content, content_type='text/html; charset=utf-8')

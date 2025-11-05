@@ -19,6 +19,6 @@ from django.urls import path
 from first_app.views import *
 
 urlpatterns = [
-    path('', popular_singers, name='home'),
+    path('', table, name='home'),
     ]
 
