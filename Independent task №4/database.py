@@ -16,7 +16,7 @@ class Database:
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     pib TEXT,
                     group_number TEXT,
-                    birth_date TEXT,
+                    birth_date date,
                     avg_real REAL,
                     avg_desired REAL
                 )
