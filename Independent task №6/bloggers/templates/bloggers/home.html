@@ -3,26 +3,20 @@
 {% block title %}Головна{% endblock %}
 
 {% block content %}
-<h2>Популярні блогери</h2>
+<h2>Останні новини</h2>
 
-<table border="1" cellpadding="5" cellspacing="0">
-    <tr>
-        <th>Ім'я</th>
-        <th>Категорія</th>
-    </tr>
-    {% for blogger in recent_bloggers %}
-    <tr>
-        <td>
-            <a href="{% url 'blogger_detail' blogger.id %}">{{ blogger.name }}</a>
-        </td>
-        <td>{{ blogger.category }}</td>
-    </tr>
+<ul>
+    {% for news_item in latest_news %}
+    <li>
+        <strong>{{ news_item.title }}</strong>
+        <p>{{ news_item.content|truncatewords:30 }}</p>
+    </li>
     {% empty %}
-    <tr>
-        <td colspan="2">Блогерів поки немає.</td>
-    </tr>
+    <li>Новин поки немає.</li>
     {% endfor %}
-</table>
+</ul>
 
+<hr>
+<p><a href="{% url 'bloggers:news' %}">Переглянути всі новини</a></p>
 <p><a href="{% url 'bloggers:bloggers_list' %}">Переглянути всіх блогерів</a></p>
 {% endblock %}

@@ -3,15 +3,16 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Блогери{% endblock %}</title>
+    <title>{% block title %}Платформа Блогерів{% endblock %}</title>
     <link href="{% static 'css/blog.css' %}" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Платформа блогерів</h1>
         <nav>
+            <a href="{% url 'bloggers:home' %}">Головна</a> |
             <a href="{% url 'bloggers:bloggers_list' %}">Усі блогери</a> |
-            <a href="{% url 'bloggers:home' %}">Головна</a>
+            <a href="{% url 'bloggers:news' %}">Всі новини</a>
         </nav>
         <hr>
     </header>

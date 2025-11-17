@@ -1,0 +1,19 @@
+{% extends "bloggers/base.html" %}
+
+{% block title %}Всі новини{% endblock %}
+
+{% block content %}
+<h1>Всі новини</h1>
+
+{% for news_item in all_news %}
+    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+        <h3>{{ news_item.title }}</h3>
+        <p>{{ news_item.content|linebreaks }}</p>
+        <small>Опубліковано: {{ news_item.publish|date:"d M Y" }}</small>
+    </div>
+{% empty %}
+    <p>Новин поки немає.</p>
+{% endfor %}
+
+<p><a href="{% url 'bloggers:home' %}">На головну</a></p>
+{% endblock %}

@@ -1,19 +1,35 @@
-{% extends "blog/base.html" %}
+{% extends "bloggers/base.html" %}
 
-{% block title %}{{ post.title }}{% endblock %}
+{% block title %}{{ blogger.name }}{% endblock %}
 
 {% block content %}
 
 <h1>{{ blogger.name }}</h1>
 <p><strong>Категорія:</strong> {{ blogger.category }}</p>
-<p>{{ blogger.description }}</p>
+<p>{{ blogger.bio }}</p>
 
 <h3>Соціальні профілі</h3>
 <ul>
     {% for platform, url in blogger.socials.items %}
-    <li><a href="{{ url }}">{{ platform }}</a></li>
+    <li><a href="{{ url }}" target="_blank">{{ platform|title }}</a></li>
+    {% empty %}
+    <li>Соціальних мереж не вказано.</li>
     {% endfor %}
 </ul>
 
-<p><a href="{% url 'bloggers:blogger_list' %}">Назад до списку</a></p>
+<hr>
+
+<h3>Публікації (Статті / Пости)</h3>
+{% for content in content_pieces %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <h4>{{ content.title }} ({{ content.get_type_display }})</h4>
+        <p>{{ content.description|linebreaks }}</p>
+        <small>Опубліковано: {{ content.published_date|date:"d M Y" }}</small>
+    </div>
+{% empty %}
+    <p>У цього блогера ще немає публікацій.</p>
+{% endfor %}
+
+
+<p><a href="{% url 'bloggers:bloggers_list' %}">Назад до списку</a></p>
 {% endblock %}
