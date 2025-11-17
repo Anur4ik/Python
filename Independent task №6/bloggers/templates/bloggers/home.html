@@ -3,20 +3,19 @@
 {% block title %}Головна{% endblock %}
 
 {% block content %}
-<h2>Останні новини</h2>
+<h2>Головні новини </h2>
 
 <ul>
-    {% for news_item in latest_news %}
-    <li>
-        <strong>{{ news_item.title }}</strong>
-        <p>{{ news_item.content|truncatewords:30 }}</p>
-    </li>
+    {% for news_item in all_news %}
+     <div style="border: 1px solid black; padding: 15px 15px 15px 15px; margin-bottom: 15px;">
+        <h3>{{ news_item.title }}</h3>
+        <p>{{ news_item.content|linebreaks }}</p>
+        <small>Опубліковано: {{ news_item.publish|date:"d M Y" }}</small>
+    </div>
     {% empty %}
     <li>Новин поки немає.</li>
     {% endfor %}
 </ul>
 
 <hr>
-<p><a href="{% url 'bloggers:news' %}">Переглянути всі новини</a></p>
-<p><a href="{% url 'bloggers:bloggers_list' %}">Переглянути всіх блогерів</a></p>
 {% endblock %}

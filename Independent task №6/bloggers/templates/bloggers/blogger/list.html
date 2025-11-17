@@ -15,9 +15,18 @@
     <tbody>
         {% for blogger in bloggers %}
         <tr>
-            <td><a href="{% url 'bloggers:blogger_detail' blogger.id %}">{{ blogger.name }}</a></td>
+            <td><a href="{% url 'bloggers:blogger_detail' blogger.slug %}">{{ blogger.name }}</a></td>
             <td>{{ blogger.category }}</td>
-            <td>{{ blogger.bio|truncatechars:50 }}</td>
+              <td>
+                <ul>
+                    {% for platform, url in blogger.socials.items %}
+                        <li>
+                            <a href="{{ url }}" target="_blank">{{ platform|title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </td>
+
         </tr>
         {% empty %}
         <tr>

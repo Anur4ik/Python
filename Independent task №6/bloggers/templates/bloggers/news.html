@@ -6,7 +6,7 @@
 <h1>Всі новини</h1>
 
 {% for news_item in all_news %}
-    <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+    <div style="border: 1px solid black; padding: 15px 15px 15px 15px; margin-bottom: 15px;">
         <h3>{{ news_item.title }}</h3>
         <p>{{ news_item.content|linebreaks }}</p>
         <small>Опубліковано: {{ news_item.publish|date:"d M Y" }}</small>

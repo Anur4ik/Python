@@ -9,17 +9,17 @@
 <p>{{ blogger.bio }}</p>
 
 <h3>Соціальні профілі</h3>
-<ul>
+
     {% for platform, url in blogger.socials.items %}
-    <li><a href="{{ url }}" target="_blank">{{ platform|title }}</a></li>
+    <a href="{{ url }}" target="_blank">{{ platform|title }}</a>
     {% empty %}
     <li>Соціальних мереж не вказано.</li>
     {% endfor %}
-</ul>
+
 
 <hr>
 
-<h3>Публікації (Статті / Пости)</h3>
+<h3 style="text-align: center">Публікації (Статті / Пости)</h3>
 {% for content in content_pieces %}
     <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
         <h4>{{ content.title }} ({{ content.get_type_display }})</h4>
