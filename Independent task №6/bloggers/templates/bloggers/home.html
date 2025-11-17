@@ -1,0 +1,28 @@
+{% extends "bloggers/base.html" %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+<h2>Популярні блогери</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Ім'я</th>
+        <th>Категорія</th>
+    </tr>
+    {% for blogger in recent_bloggers %}
+    <tr>
+        <td>
+            <a href="{% url 'blogger_detail' blogger.id %}">{{ blogger.name }}</a>
+        </td>
+        <td>{{ blogger.category }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="2">Блогерів поки немає.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p><a href="{% url 'bloggers:bloggers_list' %}">Переглянути всіх блогерів</a></p>
+{% endblock %}
