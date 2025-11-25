@@ -10,7 +10,7 @@
     <p class="date">
         Опубліковано {{ post.publish }} автором {{ post.author }}
     </p>
-    {{ post.body|markdown }
+    <p> {{ post.body|markdown }}</p>
 <p>
     <a href="{% url 'blog:post_share' post.id %}">
         Поділитися
