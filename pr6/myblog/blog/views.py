@@ -90,5 +90,3 @@ class PostListView(ListView):
 
 
 
-
-# Create your views here.
